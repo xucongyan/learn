@@ -1,6 +1,3 @@
-.idea
-/*/*.iml
-/datastructure/*.iml
-/.idea
-/.idea/uiDesigner.xml
-/thread/*.iml
+*.idea
+*.iml
+target/
