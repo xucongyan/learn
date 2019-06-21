@@ -1,4 +1,4 @@
-package Excutors;
+package excutors;
 
 import java.util.Random;
 

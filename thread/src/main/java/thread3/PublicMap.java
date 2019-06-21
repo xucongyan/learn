@@ -3,10 +3,10 @@ package thread3;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class PublicMap {
-    public Map<Integer,Integer> map = new ConcurrentHashMap<>();
+class PublicMap {
+    private Map<Integer,Integer> map = new ConcurrentHashMap<>();
 
-    public synchronized void put(int i){
+    synchronized void put(int i){
         while (map.size() >= 100){
             try {
                 wait();
@@ -20,7 +20,7 @@ public class PublicMap {
         notify();
     }
 
-    public synchronized int get(int i){
+    synchronized int get(int i){
         while (map.size() == 0){
             try {
                 wait();
