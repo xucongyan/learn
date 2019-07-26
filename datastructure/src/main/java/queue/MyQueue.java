@@ -1,5 +1,9 @@
 package queue;
 
+/**
+ * 队列操作
+ * @author xucongyan
+ */
 public class MyQueue {
 
     private Object[] queArray;
