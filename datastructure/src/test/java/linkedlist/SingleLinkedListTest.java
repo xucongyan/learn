@@ -2,7 +2,7 @@ package linkedlist;
 
 import org.junit.Test;
 
-public class testSingleLinkedList {
+public class SingleLinkedListTest {
 
     @Test
     public void test() {

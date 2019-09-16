@@ -1,8 +1,11 @@
 package queue;
 
+import org.junit.Test;
+
 public class MyQueueTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void testMyQueue() {
         MyQueue queue = new MyQueue(3);
         queue.insert(1);
         queue.insert(2);
