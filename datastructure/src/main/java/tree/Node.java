@@ -10,10 +10,10 @@ public class Node {
     int data;
 
     //左子节点
-    Node left;
+    Node leftChild;
 
     //右子节点
-    Node right;
+    Node rightChild;
 
     //表示节点是否被删除
     boolean isDelete;
@@ -30,8 +30,8 @@ public class Node {
     public String toString() {
         return "Node{" +
                 "data=" + data +
-                ", left=" + left +
-                ", right=" + right +
+                ", leftChild=" + leftChild +
+                ", rightChild=" + rightChild +
                 ", isDelete=" + isDelete +
                 '}';
     }

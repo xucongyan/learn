@@ -2,7 +2,7 @@ package tree;
 
 /**
  * @author xucongyan
- * 二叉树的方法实现
+ * 二叉搜素树的方法实现
  */
 public class BinaryTree implements Tree {
 
@@ -20,9 +20,9 @@ public class BinaryTree implements Tree {
         Node current = root;
         while (current != null) {
             if (current.data > key) {
-                current = current.left;
+                current = current.leftChild;
             } else if (current.data < key) {
-                current = current.right;
+                current = current.rightChild;
             } else {
                 return current;
             }
@@ -49,15 +49,15 @@ public class BinaryTree implements Tree {
             while (current != null) {
                 parentNode = current;
                 if (current.data > key) {
-                    current = current.left;
+                    current = current.leftChild;
                     if (current == null) {
-                        parentNode.left = newNode;
+                        parentNode.leftChild = newNode;
                         return true;
                     }
                 } else {
-                    current = current.right;
+                    current = current.rightChild;
                     if (current == null) {
-                        parentNode.right = newNode;
+                        parentNode.rightChild = newNode;
                         return true;
                     }
                 }
@@ -74,9 +74,9 @@ public class BinaryTree implements Tree {
     @Override
     public void infixOrder(Node current) {
         if (current != null) {
-            infixOrder(current.left);
+            infixOrder(current.leftChild);
             System.out.println(current.data + " ");
-            infixOrder(current.right);
+            infixOrder(current.rightChild);
         }
     }
 
@@ -89,8 +89,8 @@ public class BinaryTree implements Tree {
     public void preOrder(Node current) {
         if (current != null) {
             System.out.println(current.data + " ");
-            infixOrder(current.left);
-            infixOrder(current.right);
+            infixOrder(current.leftChild);
+            infixOrder(current.rightChild);
         }
     }
 
@@ -102,8 +102,8 @@ public class BinaryTree implements Tree {
     @Override
     public void postOrder(Node current) {
         if (current != null) {
-            infixOrder(current.left);
-            infixOrder(current.right);
+            infixOrder(current.leftChild);
+            infixOrder(current.rightChild);
             System.out.println(current.data + " ");
         }
     }
@@ -119,7 +119,7 @@ public class BinaryTree implements Tree {
         Node maxNode = current;
         while (current != null) {
             maxNode = current;
-            current = current.right;
+            current = current.rightChild;
         }
         return maxNode;
     }
@@ -135,7 +135,7 @@ public class BinaryTree implements Tree {
         Node minNode = current;
         while (current != null) {
             minNode = current;
-            current = current.left;
+            current = current.leftChild;
         }
         return minNode;
     }
@@ -156,10 +156,10 @@ public class BinaryTree implements Tree {
             parent = current;
             if (current.data > key) {
                 isLeftChild = true;
-                current = current.left;
+                current = current.leftChild;
             } else {
                 isLeftChild = false;
-                current = current.right;
+                current = current.rightChild;
             }
             if (current == null) {
                 return false;
@@ -167,33 +167,33 @@ public class BinaryTree implements Tree {
         }
 
         //如果当前节点没有子节点信息
-        if (current.left == null && current.right == null) {
+        if (current.leftChild == null && current.rightChild == null) {
             if (current == root) {
                 root = null;
             } else if (isLeftChild) {
-                root.left = null;
+                root.leftChild = null;
             } else {
-                root.right = null;
+                root.rightChild = null;
             }
             return true;
             //当前节点只有一个右子节点
-        } else if (current.left == null) {
+        } else if (current.leftChild == null) {
             if (current == root) {
-                root = current.right;
+                root = current.rightChild;
             } else if (isLeftChild) {
-                parent.left = current.right;
+                parent.leftChild = current.rightChild;
             } else {
-                parent.right = current.right;
+                parent.rightChild = current.rightChild;
             }
             return true;
             //当前节点只有一个左节点
-        } else if (current.right == null) {
+        } else if (current.rightChild == null) {
             if (current == root) {
-                root = current.left;
+                root = current.leftChild;
             } else if (isLeftChild) {
-                parent.left = current.left;
+                parent.leftChild = current.leftChild;
             } else {
-                parent.right = current.left;
+                parent.rightChild = current.leftChild;
             }
             return true;
         } else {
@@ -202,9 +202,9 @@ public class BinaryTree implements Tree {
             if (current == root) {
                 root = successor;
             } else if (isLeftChild) {
-                parent.left = successor;
+                parent.leftChild = successor;
             } else {
-                parent.right = successor;
+                parent.rightChild = successor;
             }
             return true;
         }
@@ -213,16 +213,16 @@ public class BinaryTree implements Tree {
     private Node getSuccessor(Node delNode) {
         Node successorParent = delNode;
         Node successor = delNode;
-        Node current = delNode.right;
+        Node current = delNode.rightChild;
         while (current != null) {
             successorParent = successor;
             successor = current;
-            current = current.left;
+            current = current.leftChild;
         }
         //后继节点不是删除节点的右子节点，将后继节点替换删除节点
-        if (successor != delNode.right) {
-            successorParent.left = successor.right;
-            successor.right = delNode.right;
+        if (successor != delNode.rightChild) {
+            successorParent.leftChild = successor.rightChild;
+            successor.rightChild = delNode.rightChild;
         }
         return successor;
     }
