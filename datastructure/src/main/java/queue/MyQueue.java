@@ -1,75 +1,78 @@
 package queue;
 
 /**
+ * 队列操作
+ *
  * @author xucongyan
- * 模拟队列的操作
  */
 public class MyQueue {
 
-    //队列内容
     private Object[] queArray;
 
-    //队列总大小
-    private int maxSize;
+    private int maxsize;
 
-    //前端
     private int front;
 
-    //后端
     private int rear;
 
-    //队列中元素的实际数目
-    private int items;
+    private int elements;
 
-    //初始化一个size大小的队列
-    public MyQueue(int size) {
-        this.maxSize = size;
-        queArray = new Object[maxSize];
-        this.front = 0;
-        this.rear = -1;
-        this.items = 0;
+    //初始化一定大小的队列
+    public MyQueue(int s) {
+        maxsize = s;
+        queArray = new Object[maxsize];
+        front = 0;
+        rear = -1;
+        elements = 0;
     }
 
-    //队列中新增元素
+    //在队尾插入元素
     public void insert(Object value) {
         if (isFull()) {
-            System.out.println("队列已满！！！");
+            throw new OutOfMemoryError("队列已经满了");
         } else {
-            //如果队列尾部指向顶了，那么循环回来，执行队列的第一个元素
-            if (rear == maxSize - 1) {
+            //如果指针移到了队尾，那么循环回来
+            if (rear == maxsize - 1) {
                 rear = -1;
             }
-            //队尾指针加1，然后在队尾指针处插入新的数据
             queArray[++rear] = value;
-            items++;
+            elements++;
         }
     }
 
-    //移除数据
+    //在队头移除元素
     public Object remove() {
-        Object removeObject;
+        Object removeValue = null;
         if (!isEmpty()) {
-            removeObject = queArray[front];
+            removeValue = queArray[front];
             queArray[front] = null;
             front++;
-
-            if (front == maxSize) {
+            if (front == maxsize) {
                 front = 0;
             }
-            return removeObject;
+            elements--;
         }
-        return null;
+        return removeValue;
     }
 
-    //查看头部数据
+    //查看队头的数据
     public Object peekFront() {
         return queArray[front];
     }
 
     //判断队列是否满
     public boolean isFull() {
-        return this.maxSize == this.items;
+        return maxsize == elements;
     }
 
+    //判断队列是否空
+    public boolean isEmpty() {
+        return elements == 0;
+    }
 
+    //获取队列大小
+    public int getSize() {
+        return elements;
+    }
 }
+
