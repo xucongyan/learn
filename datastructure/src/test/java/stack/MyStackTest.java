@@ -27,7 +27,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void  testStack(){
+    public void testStack() {
         Stack stack = new Stack(3);
         stack.push(1);
         //System.out.println(stack.peek());
@@ -44,7 +44,7 @@ public class MyStackTest {
     }
 
     @Test
-    public void testStringReversal(){
+    public void testStringReversal() {
         String str = "hello world";
 
         Stack stack = new Stack();
@@ -53,7 +53,7 @@ public class MyStackTest {
             stack.push(c);
         }
 
-        while (!stack.isEmpty()){
+        while (!stack.isEmpty()) {
             System.out.print(stack.pop());
         }
     }

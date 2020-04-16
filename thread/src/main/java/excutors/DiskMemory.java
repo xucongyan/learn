@@ -2,21 +2,21 @@ package excutors;
 
 import java.util.Random;
 
-   class DiskMemory {
+class DiskMemory {
 
-    private int totalSize ;
+    private int totalSize;
 
 
-    int getSize(){
-        return (new Random().nextInt(5) +1 )* 100;
+    int getSize() {
+        return (new Random().nextInt(5) + 1) * 100;
     }
 
 
-    void setSize(int size){
+    void setSize(int size) {
         totalSize += size;
     }
 
-    int getTotalSize(){
-        return  totalSize;
+    int getTotalSize() {
+        return totalSize;
     }
 }

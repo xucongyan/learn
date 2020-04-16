@@ -8,7 +8,7 @@ import org.junit.Test;
 public class TreeTest {
 
     @Test
-    public void test(){
+    public void test() {
         BinaryTree bt = new BinaryTree();
         bt.insert(50);
         bt.insert(20);

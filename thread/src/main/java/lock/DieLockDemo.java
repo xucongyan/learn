@@ -11,10 +11,10 @@ public class DieLockDemo {
                     try {
                         while (true) {
                             synchronized (DieLockDemo.str1) {
-                                System.out.println(Thread.currentThread().getName()+"锁住了str1");
+                                System.out.println(Thread.currentThread().getName() + "锁住了str1");
                                 Thread.sleep(1000);
                                 synchronized (DieLockDemo.str2) {
-                                    System.out.println(Thread.currentThread().getName()+"锁住了str2");
+                                    System.out.println(Thread.currentThread().getName() + "锁住了str2");
                                 }
                             }
                         }
@@ -27,12 +27,12 @@ public class DieLockDemo {
         Thread thread2 = new Thread(
                 () -> {
                     try {
-                        while (true){
-                            synchronized (DieLockDemo.str2){
-                                System.out.println(Thread.currentThread().getName()+"锁住了str2");
+                        while (true) {
+                            synchronized (DieLockDemo.str2) {
+                                System.out.println(Thread.currentThread().getName() + "锁住了str2");
                                 Thread.sleep(1000);
-                                synchronized (DieLockDemo.str1){
-                                    System.out.println(Thread.currentThread().getName()+"锁住了str1");
+                                synchronized (DieLockDemo.str1) {
+                                    System.out.println(Thread.currentThread().getName() + "锁住了str1");
                                 }
                             }
                         }

@@ -4,9 +4,10 @@ public class Producer implements Runnable {
 
     private PublicMap publicMap;
 
-    public Producer(PublicMap publicMap){
+    public Producer(PublicMap publicMap) {
         this.publicMap = publicMap;
     }
+
     @Override
     public void run() {
         for (int i = 0; i < 100; i++) {

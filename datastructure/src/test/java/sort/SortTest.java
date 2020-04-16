@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SortTest {
 
     @Test
-    public void testInsertSort(){
+    public void testInsertSort() {
         int[] array = {4, 2, 8, 9, 5, 7, 6, 1, 3};
         array = InsertSort.sort(array);
         assert array != null;
@@ -18,7 +18,7 @@ public class SortTest {
     }
 
     @Test
-    public void testBubbleSort(){
+    public void testBubbleSort() {
 
         int[] array = {1, 5, 4, 6, 9, 3, 0};
 
@@ -31,7 +31,7 @@ public class SortTest {
     }
 
     @Test
-    public void testChoiceSort(){
+    public void testChoiceSort() {
         int[] array = {4, 2, 8, 9, 5, 7, 6, 1, 3};
         array = ChoiceSort.sort(array);
         assert array != null;

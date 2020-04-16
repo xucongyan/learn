@@ -33,6 +33,7 @@ public class StackSingleLink {
 
     /**
      * 判断栈是否为空
+     *
      * @return true or false
      */
     public boolean isEmpty() {

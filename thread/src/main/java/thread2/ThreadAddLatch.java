@@ -20,7 +20,7 @@ public class ThreadAddLatch {
             final int k = i;
             executorService.execute(() -> {
                 synchronized (LOCK) {
-                    for (int j = k * 25 + 1; j <= (k + 1) * 25; j++){
+                    for (int j = k * 25 + 1; j <= (k + 1) * 25; j++) {
                         sum += j;
                     }
                     System.out.println(sum);
