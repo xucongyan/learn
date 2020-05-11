@@ -4,16 +4,16 @@ public class ThreadDemo {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.out.println("主线程输出");
-
-
         Thread myThread2 = new MyThread2();
         myThread2.start();
 
-        myThread2.join();
-
         Thread myThread1 = new MyThread1();
         myThread1.start();
+
+        myThread1.join();
+        myThread2.join();
+
+        System.out.println("主线程输出");
     }
 
 

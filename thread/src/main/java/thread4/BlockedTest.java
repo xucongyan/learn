@@ -1,5 +1,8 @@
 package thread4;
 
+/**
+ * 线程的阻塞状态
+ */
 public class BlockedTest {
 
 
