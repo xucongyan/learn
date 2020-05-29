@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>thread</artifactId>
+    <artifactId>designPattern</artifactId>
 
-    <name>线程相关</name>
+    <name>设计模式相关</name>
 
 </project>

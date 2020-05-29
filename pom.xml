@@ -19,6 +19,7 @@
         <module>datastructure</module>
         <module>thread</module>
         <module>classloader</module>
+        <module>designPattern</module>
     </modules>
 
     <dependencies>
